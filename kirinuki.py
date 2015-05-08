@@ -3,9 +3,10 @@ import numpy as np
 
 #img = cv2.imread("/Users/satokazuki/Desktop/lined2.jpg")
 #img2 = cv2.imread("/Users/satokazuki/Desktop/ori.jpg")
-img = cv2.imread("lined2-3.jpg")
-img2 = cv2.imread("/Users/satokazuki/Desktop/ori.jpg")
-length = 64
+img = cv2.imread("image/lined2.jpg")
+img2 = cv2.imread("image/ori.jpg", 0)
+#length = 64
+length = 254
 half = length/2
 #f = open("/Users/satokazuki/Desktop/redlist.txt", 'w')
 
@@ -19,7 +20,7 @@ for y in range(0, height - 1):
 		if (img[y, x, 2] > 200 and img[y, x, 1] < 100 and img[y, x, 0] <100):
 			if (y - half >= 0 and y + half < height and x - half >= 0 and x + half < width):
 				copy = img2[y - half : y + half +1 , x - half : x + half +1]
-				cv2.imwrite("/Users/satokazuki/Desktop/training_3/membrane" + str(count) + ".jpg", copy)
+				cv2.imwrite("/Users/satokazuki/Desktop/training_5/membrane" + str(count) + ".png", copy)
 				count = count + 1
 			#f.write(str(x) + " " + str(y) + " " + str(img[y, x, 2]) + "\n")
 			
